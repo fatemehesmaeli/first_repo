@@ -1,1 +1,7 @@
-1
+1 make account in github
+2 make repository main
+3 make public repo
+4 clone in some where in local 
+5 change pannel of laptob to new account of github in controlpannel
+6 when you want to make push  is say go to site so do that 
+7 finish
