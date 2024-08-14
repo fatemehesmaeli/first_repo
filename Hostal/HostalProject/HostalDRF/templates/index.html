@@ -1,0 +1,128 @@
+{% load static %}
+{% include 'patial/_header.html' %}
+
+<head>
+    <!-- لینک به Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body id="b1">
+    <h1 style="text-align: center; font-weight: bolder; color: rgb(62, 46, 25);">خوابگاه دخترانه دانشگاه</h1>
+    <section>
+        <div style="display: flex; align-items: center;">
+            <img style="border-radius: 10%; width: 30%; height: auto; margin-right: 20px;" class="responsive"
+                src="{% static 'img/room.jpg' %}">
+            <ul style="font-size: 1.5em;">
+                <div class="cards">
+                    <div class="card red">
+                        <p class="tip">نگهبانی 24ساعته</p>
+                        <p class="second-text">از امنیت خوابگاه، خیالت تخت!</p>
+                    </div>
+                    <div class="card blue">
+                        <p class="tip">اینترنت نامحدود و رایگان</p>
+                        <p class="second-text">از اینترنت پرسرعت خوابگاه لدت ببر</p>
+                    </div>
+                    <div class="card green">
+                        <p class="tip">دوربین مداربسته</p>
+                        <p class="second-text">هیچ اتفاقی دور از چشم نمیمونه</p>
+                    </div>
+                    <div class="card yellow">
+                        <p class="tip">نظافت روزانه</p>
+                        <p class="second-text">همه‌جا بوی تمیزی حس میشه</p>
+                    </div>
+                    <div class="card purple">
+                        <p class="tip">لباسشویی رایگان</p>
+                        <p class="second-text">نگران کثیف بودن لباس‌هات نباش</p>
+                    </div>
+                    <div class="card orange">
+                        <p class="tip">دسترسی آسان به مترو</p>
+                        <p class="second-text">فاصله فقط ۱۰ دقیقه</p>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </section>
+    <section style="text-align: center;">
+        <h1 style="font-weight: bold;">تجربه ماندگار و بدون واسطه از اقامت در تهران</h1>
+        <p>گروه خوابگاه اقامتگاه و پانسیون های دانشگاه ، با رویکرد حذف واسطه‌ها و افزایش شفافیت اطلاعات، محیطی آرام و راحت را برای
+        اقامت دانشجویان و کارمندان فراهم می‌آورد.
+        <br>
+        ما تلاش کردیم که تمامی اطلاعات مربوط به امکانات و ویژگی‌های هر اتاق، به صورت شفاف در وب‌سایت قرار دهیم.<br> این امر به شما
+        این امکان را می‌دهد تا حد زیادی بدون نیاز به مراجعه حضوری، از جزئیات هر اتاق مطلع شوید و <br> انتخابی آگاهانه داشته باشید،
+        همچنین از پرداخت هزینه‌های اضافی جلوگیری می‌شود<br>
+</p>
+    </section>
+</body>
+{% include 'patial/footer.html' %}
+
+
+<style>
+    /* From Uiverse.io by kamehame-ha */ 
+/* From Uiverse.io by kamehame-ha */ 
+#b1{
+    background-color: #eadfce;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  grid-template-rows: auto;
+  /* flex-direction: column; */
+  gap: 170px;
+}
+
+.cards .red {
+  background-color: #c7b951;
+}
+
+.cards .blue {
+  background-color: #c7a43a;
+}
+
+.cards .green {
+  background-color: #6a571a;
+}
+
+.cards .yellow {
+  background-color: #f1c40f;
+}
+
+.cards .purple {
+  background-color: #8e44ad;
+}
+
+.cards .orange {
+  background-color: #e67e22;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cards .card p.second-text {
+  font-size: .7em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+</style>
