@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        *:focus {
+            outline: 0;
+        }
+
+        html {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            align-items: center;
+            background-image: linear-gradient(0deg, #45a049 0%, #45a049 50%, #ffffff 50%, #ffffff 100%);
+            display: flex;
+            font-family: 'Poppins', sans-serif;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .container .card {
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 240px;
+            justify-content: center;
+            margin: 20px;
+            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+            width: 180px;
+        }
+
+        .container .card:hover {
+            transform: scale(1.05);
+        }
+
+        .container .card h3 {
+            margin: 0;
+            color: #4d8300;
+        }
+
+        .container .card p {
+            margin: 5px 0 0;
+            color: #4d8300;
+        }
+
+        .container .card:hover h3,
+        .container .card:hover p {
+            color: #4d8300;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>{{stu1}}</h3>
+            <p>{{stu1_tick}}</p>
+        </div>
+
+        <div class="card">
+            <h3>{{stu2}}</h3>
+            <p>{{stu2_tick}}</p>
+        </div>
+
+        <div class="card">
+            <h3>{{stu3}}</h3>
+            <p>{{stu3_tick}}</p>
+        </div>
+        <div class="card">
+            <h3>{{stu4}}</h3>
+            <p>{{stu4_tick}}</p>
+        </div>
+        <div class="card">
+            <h3>{{stu5}}</h3>
+            <p>{{stu5_tick}}</p>
+        </div>
+        <div class="card">
+            <h3>{{stu6}}</h3>
+            <p>{{stu6_tick}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
