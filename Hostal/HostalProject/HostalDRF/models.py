@@ -1,20 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import User
-
 class Room(models.Model):
-    # FIELDS = [
-    #     ("Math", "Math"),
-    #     ("Medical", "Medical"),
-    #     # ("Guest", "Guest"),
-    # ]
     block = models.IntegerField()
     room_number = models.IntegerField()
     capacity = models.IntegerField()
     num_of_people_in_room = models.IntegerField()
     price_per_day = models.DecimalField(max_digits=10, decimal_places=3)
-    # room_field = models.CharField(max_length=100, choices=FIELDS)
-    # groups = models.ForeignKey("Group", on_delete=models.CASCADE, null=True, blank=True)
-    # if FIELDS == "Math" or FIELDS == "Medical":
     group3 = models.ForeignKey(
         "StudentGroup3", on_delete=models.CASCADE, null=True, blank=True
     )
@@ -36,53 +26,47 @@ class Room(models.Model):
             self.group3 = None
             self.group4 = None
         super().save(*args, **kwargs)
-
-    # else:
-    #     roups = models.ForeignKey(Guest, on_delete=callable)
+    def __str__(self):
+        return f"{self.block} room{self.room_number}"
 
 class Student(models.Model):
     FIELDS = [
         ("Math", "Math"),
         ("Medical", "Medical"),
-        # ("Guest", "Guest"),
     ]
-    student_user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    student_user =models.CharField(max_length=200,unique=True,null=True)
+    student_password = models.CharField(max_length=200,unique=True,null=True)
     field = models.CharField(max_length=100, choices=FIELDS,null=True)
-    room_is = models.ForeignKey(Room, on_delete=models.CASCADE,null=True)
-    start_day = models.DateTimeField()
-    end_day = models.DateTimeField()
-    billing = models.DecimalField(max_digits=10, decimal_places=3)
+    room_is = models.ForeignKey(Room, on_delete=models.CASCADE,blank=True,null=True)
+    start_day = models.DateField(blank=True,null=True)
+    end_day = models.DateField(blank=True,null=True)
+    billing = models.DecimalField(max_digits=10, decimal_places=3,blank=True,null=True)
     admin_tick = models.BooleanField(default=False)
+    in_group = models.BooleanField(default=False)
+    stu_tick=models.BooleanField(default=False)
+    def __str__(self):
+        return self.student_user
 
-# first we dant have this option thi add last.
-# class Guest(models.Model):
-# guest_user = models.ForeignKey(User, on_delete=models.CASCADE)
-# num_of_guest = models.IntegerField()
-# start_day = models.DateTimeField()
-# end_day = models.DateTimeField()
-# room_is = models.ForeignKey(Room, on_delete=models.CASCADE)
-# billing = models.DecimalField(max_digits=10, decimal_places=3)
-# admin_tick = models.BooleanField(default=False)
-
-
-# # class Admin(models.Model):
-#     admin_user = models.ForeignKey(User, on_delete=models.CASCADE)
-
-
-# class EmptyRoom(models.Model):
-#     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-
-
-# class FullRoom(models.Model):
-#     room = models.ForeignKey(Room, on_delete=models.CASCADE)
-
-
+class GroupStudent(models.Model):
+    FIELDS = [
+        ("Math", "Math"),
+        ("Medical", "Medical"),
+    ]
+    student_user = models.CharField(max_length=200,unique=True,null=True)
+    field = models.CharField(max_length=100, choices=FIELDS, null=True)
+    start_day = models.DateField(blank=True, null=True)
+    end_day = models.DateField(blank=True, null=True)
 class StudentGroup3(models.Model):
     group_name = models.CharField(max_length=200)
-    stu1 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu1",null=True)
-    stu2 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu2",null=True)
-    stu3 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu3",null=True)
-
+    stu1 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu1",null=True
+    )
+    stu2 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu2",null=True
+    )
+    stu3 = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="stu3",null=True
+    )
+    stu1_tick = models.BooleanField(default=False)
+    stu2_tick = models.BooleanField(default=False)
+    stu3_tick = models.BooleanField(default=False)
 
 class StudentGroup4(models.Model):
     group_name = models.CharField(max_length=200)
@@ -98,7 +82,10 @@ class StudentGroup4(models.Model):
     stu4 = models.ForeignKey(
         Student, on_delete=models.CASCADE, related_name="stu44", null=True
     )
-
+    stu1_tick = models.BooleanField(default=False)
+    stu2_tick = models.BooleanField(default=False)
+    stu3_tick = models.BooleanField(default=False)
+    stu4_tick = models.BooleanField(default=False)
 
 class StudentGroup6(models.Model):
     group_name = models.CharField(max_length=200)
@@ -120,6 +107,13 @@ class StudentGroup6(models.Model):
     stu6 = models.ForeignKey(
         Student, on_delete=models.CASCADE, related_name="stu66", null=True
     )
+    stu1_tick = models.BooleanField(default=False)
+    stu2_tick = models.BooleanField(default=False)
+    stu3_tick = models.BooleanField(default=False)
+    stu4_tick = models.BooleanField(default=False)
+    stu5_tick = models.BooleanField(default=False)
+    stu6_tick = models.BooleanField(default=False)
+
 
 class ReserveStudent(models.Model):
     NumberOfStudent = models.IntegerField()
@@ -132,7 +126,7 @@ class ReserveStudent(models.Model):
     group6 = models.ForeignKey(
         "StudentGroup6", on_delete=models.CASCADE, null=True, blank=True
     )
-
+    room_reserve = models.ForeignKey(Room, on_delete=models.CASCADE, null=True)
     def save(self, *args, **kwargs):
         if self.NumberOfStudent == 3:
             self.group4 = None
@@ -144,3 +138,7 @@ class ReserveStudent(models.Model):
             self.group3 = None
             self.group4 = None
         super().save(*args, **kwargs)
+
+class Login(models.Model):
+    username = models.CharField(max_length=200)
+    password=models.CharField(max_length=200)

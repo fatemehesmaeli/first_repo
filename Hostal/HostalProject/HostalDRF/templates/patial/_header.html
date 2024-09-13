@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,21 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .nav-pills .nav-link.active {
+            background-color: #4CAF50;
+            border-radius: 0;
+        }
+
+        .nav-pills .nav-link {
+            font-size: large;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 0;
+        }
+
+        .nav-pills .nav-link:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 
-<body >
-    <nav class="nav nav-pills nav-justified " style="background-color:rgb(126, 80, 20);"> 
-        <a style="font-size: large; background-color:rgb(126, 80, 20); border-radius: 0%;" class="nav-link active" aria-current="page" href="/index">خانه</a>
-        <a style="font-size: large; background-color:rgb(126, 80, 20); border-radius: 0%;"class="nav-link active"  href="#">ورود</a>
-        <a style="font-size: large; background-color:rgb(126, 80, 20); border-radius: 0%;" class="nav-link active"  href="#">ثبت نام</a>
-        <a style="font-size: large; background-color:rgb(126, 80, 20); border-radius: 0%;" class="nav-link active"  href="#">رزرو</a>
-        <a style="font-size: large; background-color:rgb(126, 80, 20); border-radius: 0%;" class="nav-link active"  href="#">پرداخت</a>
-
+<body>
+    <nav class="nav nav-pills nav-justified" style="background-color: #4CAF50;">
+        <a class="nav-link active" aria-current="page" href="/index" style="background-color: #4CAF50;">خانه</a>
+        <a class="nav-link active" href="/login"style="background-color: #4CAF50;">ورود</a>
+        <a class="nav-link active" href="#"style="background-color: #4CAF50;">ثبت نام</a>
+        <!-- <a class="nav-link active" href="#">رزرو</a>
+        <a class="nav-link active" href="#">پرداخت</a> -->
     </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>

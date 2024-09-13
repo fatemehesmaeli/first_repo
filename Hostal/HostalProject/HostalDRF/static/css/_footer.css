@@ -5,12 +5,12 @@ section {
 
 section .section-title {
     text-align: center;
-    color: rgb(126, 80, 20);
+    color: rgb(14, 49, 9);
     margin-bottom: 50px;
     text-transform: uppercase;
 }
 #footer {
-    background: rgb(126, 80, 20) !important;
+    background: rgb(137, 255, 40) !important;
 }
 #footer h5{
 	padding-left: 10px;
